@@ -4,3 +4,11 @@ export const setUsers = (users) => {
         value: users
     }
 }
+
+export const getUsersFromAPI = () => {
+    return (dispatch) => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(res => res.json())
+        .then(results => dispatch(setUsers(results)))
+    }
+}
